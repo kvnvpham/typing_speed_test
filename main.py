@@ -57,7 +57,6 @@ def start_count():
     COUNT_SEC += 1
 
     if COUNT_SEC <= TIMER_MIN*60:
-        spell_check()
         timer = window.after(1000, count_wpm)
     else:
         window.after_cancel(timer)
@@ -77,6 +76,7 @@ def count_wpm():
     wpm = round((num_words/COUNT_SEC) * 60)
     wpm_label.config(text=f"{wpm} words/minute")
 
+    spell_check()
     start_count()
 
 
