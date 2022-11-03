@@ -4,7 +4,7 @@ import random
 from data import paragraphs
 
 FONT = ("Arial", 16)
-TIMER_MIN = 1
+TIMER_MIN = 0.2
 COUNT_SEC = 0
 high_score = 0
 timer = None
@@ -89,22 +89,14 @@ window.update()
 
 try:
     with open("high score.txt") as file:
-        prev_score = file.read()
+        high_score = int(file.read())
 except FileNotFoundError:
-    score_label = Label(text="High Score:", font=FONT)
-    high_score_label = Label(text=f"{high_score} words/minute", font=FONT)
-    score_label.grid(column=0, row=0, padx=(300, 0))
-    high_score_label.grid(column=1, row=0, padx=(0, 300))
-else:
-    print(high_score)
-    high_score = int(prev_score)
-    print(int(prev_score))
+    pass
 
-    score_label = Label(text="High Score:", font=FONT)
-    high_score_label = Label(text=f"{high_score} words/minute", font=FONT)
-    score_label.grid(column=0, row=0, padx=(300, 0))
-    high_score_label.grid(column=1, row=0, padx=(0, 300))
-
+score_label = Label(text="High Score:", font=FONT)
+high_score_label = Label(text=f"{high_score} words/minute", font=FONT)
+score_label.grid(column=0, row=0, padx=(300, 0))
+high_score_label.grid(column=1, row=0, padx=(0, 300))
 
 current_score_label = Label(text="Current Score:", font=FONT)
 wpm_label = Label(text=f"0 words/minute", font=FONT)
