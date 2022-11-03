@@ -4,7 +4,7 @@ import random
 from data import paragraphs
 
 FONT = ("Arial", 16)
-TIMER_MIN = 0.2
+TIMER_MIN = 2
 COUNT_SEC = 0
 high_score = 0
 timer = None
@@ -32,7 +32,7 @@ def spell_check():
     text_box.mark_set("matchEnd", start)
     text_box.mark_set("searchLimit", end)
 
-    for index in range(0, len(text_box_list) - 1):
+    for index in range(len(text_box_list) - 1):
         if rand_paragraph_list[index] != text_box_list[index]:
             for word in text_box_list[index]:
                 count = StringVar()
