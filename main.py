@@ -84,9 +84,6 @@ window = Tk()
 window.title("Typing Speed Test")
 window.config(padx=40, pady=40)
 
-window.after(1000)
-window.update()
-
 try:
     with open("high score.txt") as file:
         high_score = int(file.read())
